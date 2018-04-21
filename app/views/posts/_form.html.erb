@@ -10,10 +10,17 @@
 		</div>
 	<% end %>
 	<%= f.label :title %><br>
-	<%= f.text_field :title, 'data-parsley-required' => 'true', "data-parsley-pattern" => "^[A-Z][A-Za-z]+\s[A-Za-z]{2,}.*\\.$" %><br>
+	<%= f.text_field :title, 'data-parsley-required' => 'true', "data-parsley-pattern" => "^[A-Z][a-z]+\s[a-z]{2,}.*\\.$" %><br>
 	<br>
 	<%= f.label :body %><br>
 	<%= f.text_area :body %><br>
-	<br>
+	<p></p>
+	<% if @post.file.present? %>
+		<span>Uploaded file: <%= @post.file_name%></span>
+	<% end %>
+	<p></p>
+	<%= f.label :file %>
+  <%= f.file_field :file %>
+  <p></p>
 	<%= f.submit %>
 <% end %>

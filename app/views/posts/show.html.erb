@@ -7,6 +7,10 @@
 	</p>
 	<p class="body"><%= @post.body %></p>
 
+	<% if @post.file.present? %>
+		<p>Uploaded file: <%= @post.file_name%></p>
+	<% end %>
+
 	<div class="comments">
 		<h2><%= @post.comments.count%><%= ' ' + 'Comment'.pluralize(@post.comments.count) %></h2>
 		<ul id="comments-list" id="ajax-comments">

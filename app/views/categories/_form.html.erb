@@ -10,7 +10,7 @@
 		</div>
 	<% end %>
 	<%= f.label :name%><br>
-	<%= f.text_field :name, 'data-parsley-required' => 'true', "data-parsley-pattern" => "^[A-Z][A-Za-z]+\s[A-Za-z]{2,}.*\\.$" %><br>
+	<%= f.text_field :name, 'data-parsley-required' => 'true', "data-parsley-pattern" => "^[A-Z][a-z]+\s[a-z]{2,}.*\\.$" %><br>
 	<br>
 	<%= f.label :description %><br>
 	<%= f.text_area :description, 'data-parsley-required' => 'true' %><br>
