@@ -1,0 +1,2 @@
+$("#ajax-comments h2").html("<%= @owner.comments.count %><%=' ' + 'Comment'.pluralize(@owner.comments.count) %>")
+$('#comments-list').append("<%= j render @comment %>");

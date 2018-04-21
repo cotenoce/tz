@@ -1,4 +1,5 @@
-<%= form_for Comment.new do |f| %>
+<h3>Add a comment:</h3>
+<%= form_for Comment.new, remote: true do |f| %>
 	<%= f.label :name %><br>
 	<%= f.text_field :name %><br>
   <%= f.hidden_field :owner_type, value: owner.class.name %>
@@ -9,3 +10,12 @@
 	<br>
 	<%= f.submit %>
 <% end %>
+
+<!-- <script type="text/javascript">
+  $(document).ready ->
+    $("#new_comment").on("ajax:success", (event) ->
+      [data, status, xhr] = event.detail
+      $("#new_comment").append xhr.responseText
+    ).on "ajax:error", (event) ->
+      $("#new_comment").append "<p>ERROR</p>"
+</script> -->

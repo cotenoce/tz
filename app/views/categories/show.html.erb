@@ -1,0 +1,23 @@
+<div id="post_content">
+	<h1 class="title"><%= @category.name %></h1>
+	<p class="date">
+		Submitted <%= time_ago_in_words(@category.created_at) %> Ago
+		| <%= link_to 'Edit', edit_category_path(@category) %> |
+		  <%= link_to 'Delete', category_path(@category), method: :delete, data: { confirm: 'Are you sure?' } %>
+	</p>
+	<p class="body"><%= @category.description %></p>
+
+
+	<div class="comments">
+		<h2><%= @category.posts.count %><%= ' ' + 'Post'.pluralize(@category.posts.count) %></h2>
+		<%= render partial: "posts/post", collection: @category.posts %>
+	</div>
+
+	<div class="comments" id="ajax-comments">
+		<h2><%= @category.comments.count%><%= ' ' + 'Comment'.pluralize(@category.comments.count) %></h2>
+		<ul id="comments-list">
+			<%= render partial: "comments/comment", collection: @category.comments %>
+		</ul>
+	</div>
+	<%= render partial: "comments/form", locals: { owner: @category } %>
+</div>

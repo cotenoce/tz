@@ -1,0 +1,6 @@
+<% @categories.each do |category| %>
+	<div class="post_wrapper">
+		<h2 class="title"><%= link_to category.name, category %></h2>
+		<p class="date"><%= category.created_at.strftime("%B %d, %Y") %></p>
+	</div>
+<% end %>

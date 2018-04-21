@@ -25,12 +25,19 @@
 	<div id="main_content">
 		<div id="header">
 			<% if current_page?(root_path) %>
-				<p>All Posts</p>
+				<p>All Categories</p>
 			<% else %>
-				<%= link_to "Back to All Posts", root_path %>
+				<%= link_to "Back to All Categories", root_path %>
 			<% end %>
 			<div class="buttons">
-				<%= link_to "New Post", new_post_path, class: 'button' %>
+				<% if controller.controller_name == "posts" %>
+					<%= link_to "New Post", new_category_post_path(@category), class: 'button' %>
+				<% elsif controller.controller_name == "categories" && controller.action_name == 'show' %>
+					<%= link_to "New Post", new_category_post_path(@category), class: 'button' %>
+					<%= link_to "New Category", new_category_path, class: 'button' %>
+				<% else %>
+					<%= link_to "New Category", new_category_path, class: 'button' %>
+				<% end %>
 			</div>
 		</div>
 

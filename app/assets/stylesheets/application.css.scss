@@ -103,6 +103,8 @@ a {
    clear: both;
 }
 
+#comments-list {list-style-type: none;}
+
 #main_content {
 	margin-left: 250px;
 	#header {
@@ -163,7 +165,7 @@ a {
 			color: #9eafba;
 			margin: .5em 0 2em 0;
 		}
-		#comments {
+		.comments {
 			h2 {
 				margin: 3em 0 1em 0;
 				border-bottom: 1px solid #d6dce0;

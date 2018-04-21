@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :posts
+  resources :categories do
+    resources :posts
+  end
 
   resources :comments
 
-  root "posts#index"
+  root "categories#index"
 end

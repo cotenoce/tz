@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
 
+	before_action :find_category
+
 	def index
-		@posts = Post.all.order('created_at DESC')
+		@posts = @category.posts.order('created_at DESC')
 	end
 
 	def new
@@ -13,10 +15,9 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = Post.new(post_params)
-
+		@post = @category.posts.new(post_params)
 		if @post.save
-			redirect_to @post
+			redirect_to  category_path @category
 		else
 			render 'new'
 		end
@@ -30,7 +31,7 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 
 		if @post.update(params[:post].permit(:title, :body))
-			redirect_to @post
+			redirect_to  category_path @category
 		else
 			render 'edit'
 		end
@@ -40,12 +41,16 @@ class PostsController < ApplicationController
 		@post = Post.find(params[:id])
 		@post.destroy
 
-		redirect_to posts_path
+		redirect_to category_path @category
 	end
 
 	private
 
 	def post_params
 		params.require(:post).permit(:title, :body)
+	end
+
+	def find_category
+		@category = Category.find(params[:category_id])
 	end
 end
