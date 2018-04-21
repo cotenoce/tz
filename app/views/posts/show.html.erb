@@ -11,7 +11,7 @@
 		<p>Uploaded file: <%= @post.file_name%></p>
 	<% end %>
 
-	<div class="comments">
+	<div class="comments" id="ajax-comments">
 		<h2><%= @post.comments.count%><%= ' ' + 'Comment'.pluralize(@post.comments.count) %></h2>
 		<ul id="comments-list" id="ajax-comments">
 			<%= render partial: "comments/comment", collection: @post.comments %>

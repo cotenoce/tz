@@ -1,7 +1,7 @@
 <h3>Add a comment:</h3>
 <%= form_for Comment.new, html: {id: 'comment_form', class: 'data-parsley-validate'}, remote: true do |f| %>
 	<%= f.label :name %><br>
-	<%= f.text_field :name, 'data-parsley-required' => 'true', "data-parsley-pattern" => "^[A-Z][a-z]+\s[A-Z][a-z]{2,}.*\\.$" %><br>
+	<%= f.text_field :name, 'data-parsley-required' => 'true', "data-parsley-pattern" => "^[A-Z][a-z]+\s[A-Z][a-z]{1,}.*\\.$" %><br>
   <%= f.hidden_field :owner_type, value: owner.class.name %>
   <%= f.hidden_field :owner_id, value: owner.id %>
 	<br>
