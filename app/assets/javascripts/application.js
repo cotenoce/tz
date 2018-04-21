@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require parsley.min
+//= require validator.js
 //= require_tree .

@@ -1,4 +1,4 @@
-<%= form_for @category do |f| %>
+<%= form_for @category, html: {id: 'category_form', class: 'data-parsley-validate'} do |f| %>
 	<% if @category.errors.any? %>
 		<div id="errors">
 			<h2><%= pluralize(@category.errors.count, "error") %> prevented this category from saving:</h2>
@@ -10,10 +10,10 @@
 		</div>
 	<% end %>
 	<%= f.label :name%><br>
-	<%= f.text_field :name %><br>
+	<%= f.text_field :name, 'data-parsley-required' => 'true', "data-parsley-pattern" => "^[A-Z][A-Za-z]+\s[A-Za-z]{2,}.*\\.$" %><br>
 	<br>
 	<%= f.label :description %><br>
-	<%= f.text_area :description %><br>
+	<%= f.text_area :description, 'data-parsley-required' => 'true' %><br>
 	<br>
 	<%= f.submit %>
 <% end %>
