@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require parsley.min
 //= require validator.js
+//= require error.js
 //= require_tree .
